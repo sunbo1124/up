@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<configuration scan="true">
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/opt/ericsson/csp/logs/tsc-admin.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/opt/ericsson/csp/history-logs/tsc-admin-%d{yyyy-MM-dd}.%i.gz
+			</FileNamePattern>
+			<MaxHistory>60</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>512MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [TSC_ADMIN] [%-5level] [%logger{36}] %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="com.ericsson">
+		<level value="INFO" />
+		<appender-ref ref="FILE" />
+	</logger>
+    <logger name="org.springframework">
+        <level value="WARN" />
+        <appender-ref ref="FILE" />
+    </logger>
+    
+    <logger name="com.alibaba">
+        <level value="WARN" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+</configuration> 

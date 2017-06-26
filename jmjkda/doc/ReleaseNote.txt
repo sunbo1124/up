@@ -1,0 +1,15 @@
+﻿
+1:打开tsc-admin.war包
+
+前提： 确保在create-table.sql的表 已经建立
+	执行init-data.sql 。
+
+  a: 根据部署环境数据库配置配置tsc-admin.war中的app.properties文件。
+jdbc.url=jdbc:postgresql://[postgresql_node]:[port]/[database]
+jdbc.username=[username]   ---[user would be granted privilleges in init-data.sql]
+jdbc.password=[password]
+zookeeper.address=[zookeeper location]   for example: zookeeper://127.0.0.1:12181
+  b: 将war包放在tomcat下，启动tomcat.启动之后登录： http://ip:port/tsc-admin
+  登录用户名： administrator/123456
+  在参数管理菜单下， 修改DISPATCHER_REQUESTURI 指向dispatcher地址。
+

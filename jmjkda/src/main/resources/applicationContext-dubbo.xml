@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd" default-autowire="byType">
+	
+	<context:annotation-config/>
+	
+		
+	<dubbo:application name="tsc-admin" owner="tsc" organization="ericsson" logger="slf4j"/>
+
+	<dubbo:registry  address="${dubbo.registry.address}" file="${user.home}/.dubbo/tsc-admin.cache"/>
+
+	<dubbo:protocol name="rest" port="${dubbo.protocol.port}" contextpath="tsc-admin/services" extension="com.alibaba.dubbo.rpc.protocol.rest.support.LoggingFilter" dispatcher="all" threadpool="fixed" threads="30"/>
+	
+	<dubbo:reference id="registryService" interface="com.alibaba.dubbo.registry.RegistryService" check="false"/>
+
+
+</beans>
