@@ -25,7 +25,7 @@ import com.ericsson.csp.tsc.admin.realms.WebRealm;
 @RequestMapping(value = "/api")
 public class AngularShiroController {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(SysVersionController.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(AngularShiroController.class);
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<String> login(@RequestBody

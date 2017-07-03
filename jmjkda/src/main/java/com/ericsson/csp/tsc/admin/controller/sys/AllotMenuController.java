@@ -21,11 +21,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.ericsson.csp.tsc.admin.controller.pojo.AllotMenu;
+import com.ericsson.csp.tsc.admin.controller.pojo.LogOperationEnum;
+import com.ericsson.csp.tsc.admin.controller.pojo.OperationResult;
 import com.ericsson.csp.tsc.admin.service.sys.AllotMenuService;
 import com.ericsson.csp.tsc.admin.util.DataTableFormate;
-import com.ericsson.csp.tsc.admin.util.Logs;
-import com.ericsson.csp.tsc.api.enumconst.LogOperationEnum;
-import com.ericsson.csp.tsc.api.pojo.OperationResult;
 
 @Controller
 @RequestMapping(value = "/allotMenu")
@@ -69,8 +68,7 @@ public class AllotMenuController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
             operationResult = OperationResult.OPERATION_FAILURE.name();
         }
-        Logs.AdminOperatorLogs(AllotMenuController.class, request, LogOperationEnum.DELETE.getValue() + " <allotMenu>",
-                "delete allotMenu id is " + roleId + "," + menuId, operationResult, result);
+       
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }
@@ -92,8 +90,6 @@ public class AllotMenuController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
             operationResult = OperationResult.OPERATION_FAILURE.name();
         }
-        Logs.AdminOperatorLogs(AllotMenuController.class, request, LogOperationEnum.DELETE.getValue() + " <allotMenu>",
-                "add allotMenu ids is " + roleId + "," + menuId, operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }

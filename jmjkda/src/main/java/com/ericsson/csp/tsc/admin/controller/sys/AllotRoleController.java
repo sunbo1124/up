@@ -24,13 +24,11 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSON;
+import com.ericsson.csp.tsc.admin.controller.pojo.OperationResult;
 import com.ericsson.csp.tsc.admin.dao.entity.SysUserRole;
 import com.ericsson.csp.tsc.admin.service.sys.SysUserRoleService;
 import com.ericsson.csp.tsc.admin.util.JacksonUtil;
-import com.ericsson.csp.tsc.admin.util.Logs;
 import com.ericsson.csp.tsc.admin.util.Pagination;
-import com.ericsson.csp.tsc.api.enumconst.LogOperationEnum;
-import com.ericsson.csp.tsc.api.pojo.OperationResult;
 
 @Controller
 @RequestMapping(value = "/allotRole")
@@ -90,8 +88,6 @@ public class AllotRoleController {
             operationResult = OperationResult.OPERATION_FAILURE.name();
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
-        Logs.AdminOperatorLogs(AllotRoleController.class, request, LogOperationEnum.UPDATE.getValue() + " sysUserRole",
-                sysUserRole == null ? null : sysUserRole.getUserId() + "", operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }
@@ -114,8 +110,6 @@ public class AllotRoleController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
-        Logs.AdminOperatorLogs(AllotRoleController.class, request, LogOperationEnum.ADD.getValue() + " sysUserRole",
-                sysUserRole == null ? null : sysUserRole.getUserId() + "", operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }
@@ -138,8 +132,6 @@ public class AllotRoleController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
-        Logs.AdminOperatorLogs(AllotRoleController.class, request, LogOperationEnum.DELETE.getValue() + " sysUserRole",
-                "delete sysUserRole" + id, operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }

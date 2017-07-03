@@ -51,11 +51,4 @@
 		<property name="roleDao" ref="sysRoleDao"></property>
 	</bean>
 
-	<bean id="logFetchController"
-		class="com.ericsson.csp.tsc.admin.controller.sys.LogFetchController"
-		scope="singleton" init-method="Fetching" destroy-method="cleanUp">
-		<!-- <property name="disPassword" value="${disPassword}"></property>
-		<property name="SMSPassword" value="${SMSPassword}"></property> -->
-	</bean>
-
 </beans>

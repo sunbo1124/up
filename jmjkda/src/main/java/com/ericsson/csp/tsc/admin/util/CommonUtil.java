@@ -1,5 +1,7 @@
 package com.ericsson.csp.tsc.admin.util;
 
+import java.security.MessageDigest;
+
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.config.HttpClientConfig;
@@ -25,5 +27,32 @@ public class CommonUtil {
     public static String getCurDate(final String format) {
         final DateTime d = new DateTime();
         return d.toString(format);
+    }
+    
+    public static String string2MD5(final String inStr) {
+        MessageDigest md5 = null;
+        try {
+            md5 = MessageDigest.getInstance("MD5");
+        } catch (final Exception e) {
+            LOGGER.info("string2MD5 MessageDigest getInstance failure", e);
+            return "";
+        }
+        final char[] charArray = inStr.toCharArray();
+        final byte[] byteArray = new byte[charArray.length];
+
+        for (int i = 0; i < charArray.length; i++) {
+            byteArray[i] = (byte) charArray[i];
+        }
+        final byte[] md5Bytes = md5.digest(byteArray);
+        final StringBuilder hexValue = new StringBuilder();
+        for (final byte md5Byte : md5Bytes) {
+            final int val = (md5Byte) & 0xff;
+            if (val < 16) {
+                hexValue.append("0");
+            }
+            hexValue.append(Integer.toHexString(val));
+        }
+        return hexValue.toString();
+
     }
 }

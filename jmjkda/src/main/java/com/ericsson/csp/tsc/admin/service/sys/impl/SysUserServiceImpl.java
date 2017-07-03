@@ -18,10 +18,10 @@ import com.ericsson.csp.tsc.admin.dao.sys.SysRoleDao;
 import com.ericsson.csp.tsc.admin.dao.sys.SysUserDao;
 import com.ericsson.csp.tsc.admin.dao.sys.SysUserRoleDao;
 import com.ericsson.csp.tsc.admin.service.sys.SysUserService;
+import com.ericsson.csp.tsc.admin.util.CommonUtil;
 import com.ericsson.csp.tsc.admin.util.DataTableFormate;
 import com.ericsson.csp.tsc.admin.util.Pagination;
 import com.ericsson.csp.tsc.admin.util.SysConstant;
-import com.ericsson.csp.tsc.utils.CommonUtil;
 
 @Service("userService")
 @Transactional("transactionManager")

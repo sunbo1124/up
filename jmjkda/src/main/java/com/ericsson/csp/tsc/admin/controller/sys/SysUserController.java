@@ -1,7 +1,9 @@
 package com.ericsson.csp.tsc.admin.controller.sys;
 
 import java.nio.charset.Charset;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +22,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSON;
+import com.ericsson.csp.tsc.admin.controller.pojo.OperationResult;
 import com.ericsson.csp.tsc.admin.dao.entity.SysUser;
 import com.ericsson.csp.tsc.admin.service.sys.SysUserService;
-import com.ericsson.csp.tsc.admin.util.Logs;
 import com.ericsson.csp.tsc.admin.util.Pagination;
-import com.ericsson.csp.tsc.api.enumconst.LogOperationEnum;
-import com.ericsson.csp.tsc.api.pojo.OperationResult;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -91,8 +91,6 @@ public class SysUserController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
-        Logs.AdminOperatorLogs(SysUserController.class, request, LogOperationEnum.ADD.getValue() + " sysUser",
-                user == null ? null : user.getName(), operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }
@@ -129,8 +127,6 @@ public class SysUserController {
             operationResult = OperationResult.OPERATION_FAILURE.name();
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
-        Logs.AdminOperatorLogs(SysUserController.class, request, LogOperationEnum.UPDATE.getValue() + " sysUser",
-                sysUser == null ? null : sysUser.getName(), operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }
@@ -153,8 +149,6 @@ public class SysUserController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
             operationResult = OperationResult.OPERATION_FAILURE.name();
         }
-        Logs.AdminOperatorLogs(SysUserController.class, request, LogOperationEnum.DELETE.getValue() + " sysUser",
-                "delete user id is " + id, operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }

@@ -30,8 +30,8 @@ import com.ericsson.csp.tsc.admin.dao.entity.SysRole;
 import com.ericsson.csp.tsc.admin.dao.entity.SysUser;
 import com.ericsson.csp.tsc.admin.service.sys.SysMenuService;
 import com.ericsson.csp.tsc.admin.service.sys.SysUserService;
+import com.ericsson.csp.tsc.admin.util.CommonUtil;
 import com.ericsson.csp.tsc.admin.util.SysConstant;
-import com.ericsson.csp.tsc.utils.CommonUtil;
 
 public class WebRealm extends AuthorizingRealm {
 

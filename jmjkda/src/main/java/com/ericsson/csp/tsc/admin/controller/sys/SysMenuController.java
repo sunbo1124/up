@@ -26,14 +26,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.ericsson.csp.tsc.admin.controller.pojo.OperationResult;
 import com.ericsson.csp.tsc.admin.controller.pojo.tool.BootstrapTreeviewPojo;
 import com.ericsson.csp.tsc.admin.dao.entity.SysMenu;
 import com.ericsson.csp.tsc.admin.service.sys.SysMenuService;
 import com.ericsson.csp.tsc.admin.util.JacksonUtil;
-import com.ericsson.csp.tsc.admin.util.Logs;
 import com.ericsson.csp.tsc.admin.util.Pagination;
-import com.ericsson.csp.tsc.api.enumconst.LogOperationEnum;
-import com.ericsson.csp.tsc.api.pojo.OperationResult;
 
 @Controller
 @RequestMapping(value = "/menu")
@@ -122,8 +120,6 @@ public class SysMenuController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
-        Logs.AdminOperatorLogs(SysMenuController.class, request, LogOperationEnum.UPDATE.getValue() + " sysMenu",
-                menu == null ? null : menu.getName(), operationResult, result);
         return new ResponseEntity<String>(result, headers, httpStatus);
     }
 
@@ -145,8 +141,6 @@ public class SysMenuController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
-        Logs.AdminOperatorLogs(SysMenuController.class, request, LogOperationEnum.ADD.getValue() + " sysMenu",
-                menu == null ? null : menu.getName(), operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }
@@ -170,8 +164,6 @@ public class SysMenuController {
             httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
-        Logs.AdminOperatorLogs(SysMenuController.class, request, LogOperationEnum.DELETE.getValue() + " sysMenu",
-                "delete sysMenu id is" + id, operationResult, result);
 
         return new ResponseEntity<String>(result, headers, httpStatus);
     }

@@ -64,8 +64,11 @@
 			<version>${powermock.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.2.Final</version>
+		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
@@ -414,7 +417,7 @@
 			<properties>
 				<dubbo.protocol.port>20881</dubbo.protocol.port>
 				<dubbo.registry.address>zookeeper://127.0.0.1:2181</dubbo.registry.address>
-				<jdbc.url>jdbc:postgresql://127.0.0.1:15432/tscdb_dev</jdbc.url>
+				<jdbc.url>jdbc:postgresql://127.0.0.1:15432/tscdb</jdbc.url>
 				<jdbc.username>tscdba</jdbc.username>
 				<jdbc.password>htRTg5tRsYliXlpetlwrqxedT+J+ApVlW1zcUEFPzJ0GeSJArR9KoprAu2zPx/ViYdo7LNNuf5251qEv/QGOhg==</jdbc.password>
 				<uniconf.jdbc.url>jdbc:postgresql://127.0.0.1:15432/uniconfigdb</uniconf.jdbc.url>

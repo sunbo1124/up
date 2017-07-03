@@ -4,7 +4,7 @@ import javax.persistence.Transient;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
-import com.ericsson.csp.tsc.api.util.PaginationRow;
+import com.ericsson.csp.tsc.admin.util.PaginationRow;
 
 public class AllotMenu implements java.io.Serializable, PaginationRow {
 
