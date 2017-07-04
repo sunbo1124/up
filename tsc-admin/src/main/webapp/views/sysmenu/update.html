@@ -1,0 +1,71 @@
+<meta charset="utf-8"/>
+<div style="padding: 15px 0;">
+	<a href="#/menu" class="btn btn-default"><i class='fa fa-reply'></i>&nbsp;&nbsp;<span ng-bind=" 'i18n.common.back' | translate"/></a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary" data-collapsed="0">
+            <div class="panel-heading">
+                <div class="panel-title">
+                 	<span ng-bind=" 'i18n.common.update' | translate"/>
+                </div>
+                <div class="panel-options">
+                    <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <form name="menuForm" class="form-horizontal form-groups-bordered" novalidate ng-submit="submit()">
+                    <!-- 用户名 -->
+                    <div class="form-group" ng-class="{'has-error': menuForm.name.$invalid && (menuForm.name.$dirty || menuForm.$submitted),'has-success': menuForm.name.$valid && (menuForm.name.$dirty || menuForm.$submitted)}">
+                        <label for="field-1" class="col-sm-3 control-label"><span ng-bind=" 'i18n.menulist.name' | translate"/></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="field-1" name="name" ng-model="fields.name" required/>
+                        </div>
+                        <div class="col-sm-3">
+                            <span ng-show="menuForm.name.$error.required && (menuForm.name.$dirty || menuForm.$submitted)" class="help-block">用户名必填.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-2" class="col-sm-3 control-label"><span ng-bind=" 'i18n.menulist.pid' | translate"/></label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="field-2" name="pid" ng-init="fields.pid = pidItems[0]" ng-model="fields.pid" ng-options="pidItem.id as pidItem.name for pidItem in pidItems"></select>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': menuForm.url.$invalid && (menuForm.url.$dirty || menuForm.$submitted),'has-success': menuForm.url.$valid && (menuForm.url.$dirty || menuForm.$submitted)}">
+                        <label for="field-3" class="col-sm-3 control-label"><span ng-bind=" 'i18n.menulist.url' | translate"/></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="field-3" name="url" ng-model="fields.url" required/>
+                        </div>
+                        <div class="col-sm-3">
+                            <span ng-show="menuForm.url.$error.required && (menuForm.url.$dirty || menuForm.$submitted)" class="help-block">url必填.</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': menuForm.orderNum.$invalid && (menuForm.orderNum.$dirty || menuForm.$submitted),'has-success': menuForm.orderNum.$valid && (menuForm.orderNum.$dirty || menuForm.$submitted)}">
+                        <label for="field-4" class="col-sm-3 control-label"><span ng-bind=" 'i18n.menulist.orderNum' | translate"/></label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="field-4" name="orderNum" ng-model="fields.orderNum" required/>
+                        </div>
+                        <div class="col-sm-3">
+                            <span ng-show="menuForm.orderNum.$error.required && (menuForm.orderNum.$dirty || menuForm.$submitted)" class="help-block">orderNum必填.</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': menuForm.type.$invalid && (menuForm.type.$dirty || menuForm.$submitted),'has-success': menuForm.type.$valid && (menuForm.type.$dirty || menuForm.$submitted)}">
+                        <label for="field-5" class="col-sm-3 control-label"><span ng-bind=" 'i18n.menulist.type' | translate"/></label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="field-5" name="type" ng-model="fields.type" ng-maxlength="1" required/>
+                        </div>
+                        <div class="col-sm-3">
+                            <span ng-show="menuForm.type.$error.required && (menuForm.type.$dirty || menuForm.$submitted)" class="help-block">类型必填.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-5">
+                            <button type="submit" class="btn btn-success"  ><span ng-bind=" 'i18n.common.save' | translate"/></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

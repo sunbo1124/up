@@ -1,0 +1,33 @@
+<meta charset="utf-8"/>
+<div style="padding: 15px 0;">
+	<a href="#/menu/add" class="btn btn-success"><i class='fa fa-plus-square-o'></i>&nbsp;&nbsp;<span ng-bind=" 'i18n.common.add' | translate"/></a>
+</div>
+<table class="table table-bordered datatable" customer-side-data-table class="display" cellspacing="0" width="100%">
+   	<thead>
+    	<tr>
+	        <th  style="width: 50px;"><span ng-bind=" 'i18n.common.index' | translate"></span></th>
+	        <th><span ng-bind=" 'i18n.menulist.name' | translate"></span></th>
+	        <th><span ng-bind=" 'i18n.menulist.url' | translate"></span></th>
+	        <th><span ng-bind=" 'i18n.menulist.icon' | translate"></span></th>
+	        <th><span ng-bind=" 'i18n.menulist.orderNum' | translate"></span></th>
+	        <th><span ng-bind=" 'i18n.menulist.type' | translate"></span></th>
+	        <th><span ng-bind=" 'i18n.common.updateTime' | translate"></span></th>
+	        <th><span ng-bind=" 'i18n.common.operation' | translate"></span></th>
+    	</tr>
+   	</thead>
+   	<tbody>
+   		<tr ng-repeat="data in tableData" on-repeat-over>
+   			<td ng-bind="$index+1"></td>
+   			<td ng-bind="data.name"></td>
+   			<td ng-bind="data.url"></td>
+   			<td ng-bind="data.icon"></td>
+   			<td ng-bind="data.orderNum"></td>
+   			<td ng-bind="data.type"></td>
+   			<td ng-bind="data.updateTime"></td>
+   			<td>
+   				<a ng-if="$index != 0" href="#/menu/upd/{{data.id}}" class="btn btn-warning" uib-popover="修改" popover-trigger='mouseenter'><i class='fa fa-pencil-square-o'></i></a>&nbsp;
+   				<a ng-if="$index != 0" href="javascript:void(0)" ng-click="openDelModal('/views/sysmenu/delete.html',data.id)" class="btn btn-danger" uib-popover="删除" popover-trigger='mouseenter'><i class='fa fa-trash-o'></i></a>&nbsp;
+   			</td>
+   		</tr>
+   	</tbody>
+</table>

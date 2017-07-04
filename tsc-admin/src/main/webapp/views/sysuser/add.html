@@ -1,0 +1,120 @@
+<meta charset="utf-8" />
+<div style="padding: 15px 0;">
+	<a href="#/user" class="btn btn-default"><i class='fa fa-reply'></i>&nbsp;&nbsp;<span
+		ng-bind=" 'i18n.common.back' | translate"></span></a>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-primary" data-collapsed="0">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<span ng-bind=" 'i18n.common.add' | translate"></span>
+				</div>
+				<div class="panel-options">
+					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+				</div>
+			</div>
+
+			<div class="panel-body">
+				<form name="userForm" class="form-horizontal form-groups-bordered"
+					novalidate ng-submit="submit()">
+					<!-- 用户名 -->
+					<div class="form-group"
+						ng-class="{'has-error': userForm.loginName.$invalid && (userForm.loginName.$dirty || userForm.$submitted),'has-success': userForm.loginName.$valid && (userForm.loginName.$dirty || userForm.$submitted)  }">
+						<label for="field-1" class="col-sm-3 control-label"><span
+							ng-bind=" 'i18n.user.loginName' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-1"
+								name="loginName" ng-model="fields.loginName"
+								ng-blur="checkLoginName()" required />
+						</div>
+						<div class="col-sm-3">
+							<span
+								ng-show="userForm.loginName.$error.required && (userForm.loginName.$dirty || userForm.$submitted)"
+								class="help-block">用户名必填.</span> <span
+								ng-show="exits&&!userForm.loginName.$error.required"
+								class="help-block" id="checkName_1" name="check">用户已存在.</span>
+						</div>
+					</div>
+					<!-- 密码 -->
+					<div class="form-group"
+						ng-class="{'has-error': userForm.password.$invalid && (userForm.password.$dirty || userForm.$submitted),'has-success': userForm.password.$valid && (userForm.password.$dirty || userForm.$submitted)}">
+						<label for="field-2" class="col-sm-3 control-label"><span
+							ng-bind=" 'i18n.user.password' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="password" class="form-control" id="field-2"
+								name="password" ng-model="fields.password" required password />
+						</div>
+						<div class="col-sm-3">
+							<p
+								ng-show="userForm.password.$error.required && (userForm.password.$dirty || userForm.$submitted)"
+								class="help-block">密码必填.</p>
+							<p
+								ng-show="userForm.password.$error.password && (userForm.password.$dirty || userForm.$submitted)"
+								class="help-block">6-16位字母加数字密码</p>
+						</div>
+					</div>
+					<!-- 确认密码 -->
+					<div class="form-group"
+						ng-class="{'has-error': userForm.confirmPassword.$invalid && (userForm.confirmPassword.$dirty || userForm.$submitted),'has-success': userForm.confirmPassword.$valid && (userForm.confirmPassword.$dirty || userForm.$submitted)}">
+						<label for="field-3" class="col-sm-3 control-label"><span
+							ng-bind=" 'i18n.user.countersign' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="password" class="form-control" id="field-3"
+								name="confirmPassword" ng-model="fields.confirmPassword"
+								equals="{{fields.password}}" required />
+						</div>
+						<div class="col-md-3">
+							<span
+								ng-show="userForm.confirmPassword.$error.required && (userForm.confirmPassword.$dirty || userForm.$submitted)"
+								class="help-block">必须再次输入密码</span> <span
+								ng-show="userForm.confirmPassword.$error.equals"
+								class="help-block">密码不一致</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="field-4" class="col-sm-3 control-label"><span
+							ng-bind=" 'i18n.user.Name' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-4" name="name"
+								ng-model="fields.name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="field-5" class="col-sm-3 control-label"><span
+							ng-bind=" 'i18n.user.phone' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-5" name="phone"
+								ng-model="fields.phone" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span
+							ng-bind=" 'i18n.user.Email' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-6" name="email"
+								ng-model="fields.email" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="field-7" class="col-sm-3 control-label"><span
+							ng-bind=" 'i18n.user.sex' | translate"></span></label>
+						<div class="col-sm-6">
+							<select class="form-control" id="field-7" name="sex"
+								ng-init="fields.sex = sexItems[0]" ng-model="fields.sex"
+								ng-options="sexItem.name for sexItem in sexItems"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-5">
+							<button type="submit" class="btn btn-success"
+								ng-click="validateBeforSubmit()">
+								<span ng-bind=" 'i18n.common.save' | translate"></span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
