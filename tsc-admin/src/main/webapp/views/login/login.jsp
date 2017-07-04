@@ -7,7 +7,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 	
-	<title>TSC | Login</title>
+	<title>社区管理系统登录</title>
 	
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/font-icons/entypo/css/entypo.css">
@@ -36,8 +36,8 @@
 <div class="login-container">
 	<div class="login-header login-caret">
 		<div class="login-content">
-			<a href="index.html" class="logo" style="font-size: 28px;color:white;">
-				Geely Telematics Service Controller Portal
+			<a href="index.html" class="logo" style="font-size: 40px;color:white;">
+				社区健康管理系统
 			</a>
 			<!-- progress bar indicator -->
 			<div class="login-progressbar-indicator">
@@ -59,16 +59,16 @@
 			
 			<div>
 				<label>
-					<strong>Language:</strong>
+					<!-- <strong>Language:</strong> -->
 				</label>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label>
-					<span id="cn" class="flag-icon flag-icon-cn" style="border-style:solid;border-width:2px;"  onclick="changeStyle('cn')"/>
+					<!-- <span id="cn" class="flag-icon flag-icon-cn" style="border-style:solid;border-width:2px;"  onclick="changeStyle('cn')"/> -->
 					<input type="radio" id="locale1" name="locale" checked="checked" value="CN" hidden >
 				</label>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label>
-					<span id="us" class="flag-icon flag-icon-gb" onclick="changeStyle(us)"></span>
+					<!-- <span id="us" class="flag-icon flag-icon-gb" onclick="changeStyle(us)"></span> -->
 					<input type="radio" id="locale2" name="locale" value="US" hidden>
 				</label>
 			</div>
