@@ -1,8 +1,0 @@
-
-<dwr>
-  <allow>
-    <create creator="new" javascript="JDate">
-      <param name="class" value="java.util.Date"/>
-    </create>
-  </allow>
-</dwr>
