@@ -406,6 +406,12 @@
 			<artifactId>dwr</artifactId>
 			<version>${dwr_version}</version>
 		</dependency>
+		
+		<dependency>
+    		<groupId>mysql</groupId>
+    		<artifactId>mysql-connector-java</artifactId>
+    		<version>5.1.38</version>
+		</dependency>
 
 	</dependencies>
 
