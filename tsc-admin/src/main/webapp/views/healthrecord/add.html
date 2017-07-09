@@ -1,0 +1,168 @@
+<meta charset="utf-8"/>
+<div style="padding: 15px 0;">
+	<a href="#/healthRecord" class="btn btn-default"><i class='fa fa-reply'></i>&nbsp;&nbsp;<span ng-bind=" 'i18n.common.back' | translate"></span></a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary" data-collapsed="0">
+            <div class="panel-heading">
+                <div class="panel-title">
+                 	<span ng-bind=" 'i18n.common.add' | translate"></span>
+                </div>
+                <div class="panel-options">
+                    <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <form name="healthRecordForm" class="form-horizontal form-groups-bordered" novalidate ng-submit="submit()">
+                    <!-- 用户名 -->
+                    <div class="form-group" ng-class="{'has-error': healthRecordForm.name.$invalid && (healthRecordForm.name.$dirty || healthRecordForm.$submitted),'has-success': healthRecordForm.name.$valid && (healthRecordForm.name.$dirty || healthRecordForm.$submitted)}">
+                        <label for="field-1" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.name' | translate"/></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="field-1" name="name" ng-model="fields.name" required/>
+                        </div>
+                        <div class="col-sm-3">
+                            <span ng-show="healthRecordForm.name.$error.required && (healthRecordForm.name.$dirty || healthRecordForm.$submitted)" class="help-block">姓名必填.</span>
+                        </div>
+                    </div> 
+                    
+                   <div class="form-group">
+						<label for="field-7" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.sex' | translate"></span></label>
+						<div class="col-sm-6">
+							<select class="form-control" id="field-2" name="sex" ng-init="fields.sex = sexItems[0]" ng-model="fields.sex" ng-options="sexItem.name for sexItem in sexItems"></select>
+						</div>
+					</div>
+                    
+                   	<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.address' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-3" name="address" ng-model="fields.address" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.code' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-4" name="code" ng-model="fields.code" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.permanentType' | translate"></span></label>
+						<div class="col-sm-6">
+							户籍<input type="checkbox" id="field-5" ng-click="selectionPermanentType($event,'户籍')">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							非户籍<input type="checkbox" id="field-5" ng-click="selectionPermanentType($event,'非户籍')">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.phone' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-6" name="phone" ng-model="fields.phone" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.contact' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-7" name="contact" ng-model="fields.contact" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.contactPhone' | translate"></span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="field-8" name="contactPhone" ng-model="fields.contactPhone" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.payType' | translate"></span></label>
+						<div class="col-sm-6">
+							
+							城镇职工基本医疗保险<input type="checkbox"  id="field-9" ng-click="selectionPayType($event,'城镇职工基本医疗保险')" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							城镇居民基本医疗保险<input type="checkbox"  id="field-9" ng-click="selectionPayType($event,'城镇居民基本医疗保险')" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							新型农村合作医疗<input type="checkbox"  id="field-9" ng-click="selectionPayType($event,'新型农村合作医疗')"  />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							贫困救助<input type="checkbox"  id="field-9" ng-click="selectionPayType($event,'贫困救助')" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							商业医疗保险<input type="checkbox"  id="field-9" ng-click="selectionPayType($event,'商业医疗保险')" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							全公费<input type="checkbox"  id="field-9" ng-click="selectionPayType($event,'全公费')"  />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							全自费<input type="checkbox"  id="field-9" ng-click="selectionPayType($event,'全自费')" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							其他<input type="checkbox"  id="field-9" ng-click="selectionPayType($event,'其他')" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.bloodType' | translate"></span></label>
+						<div class="col-sm-6">
+							<select class="form-control" id="field-7" name="bloodType" ng-init="fields.bloodType = bloodTypeItems[0]" ng-model="fields.bloodType" ng-options="bloodTypeItem.name for bloodTypeItem in bloodTypeItems"></select>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.allergicHis' | translate"></span></label>
+						<div class="col-sm-6">
+							无<input type="checkbox"  id="field-7" name="allergicHis" ng-checked="fields.allergicHis"  value="无" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							青霉素<input type="checkbox"  id="field-7" name="allergicHis" ng-checked="fields.allergicHis"  value="青霉素" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							磺胺<input type="checkbox"  id="field-7" name="allergicHis" ng-checked="fields.allergicHis"  value="磺胺" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							链霉素<input type="checkbox"  id="field-7" name="allergicHis" ng-checked="fields.allergicHis"  value="链霉素" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							其他<input type="checkbox"  id="field-7" name="allergicHis" ng-checked="fields.allergicHis"  value="其他" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="field-6" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.medicalHis' | translate"></span></label>
+						<div class="col-sm-6">
+							
+							无<input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="无" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							高血压<input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="高血压" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							糖尿病<input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="糖尿病" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							冠心病<input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="冠心病" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							脑血栓 <input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="脑血栓 " />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							颈椎病 <input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="颈椎病 " />
+							
+							腰间盘 <input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="腰间盘 " />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							结核病 <input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="结核病 " />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							肝炎 <input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="肝炎" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							肾病 <input type="checkbox"  id="field-7" name="medicalHis" ng-checked="fields.medicalHis"  value="肾病" />
+							
+						</div>
+					</div>
+					
+                     <div class="form-group">
+                        <label for="field-1" class="col-sm-3 control-label"><span ng-bind=" 'i18n.healthRecord.physicalTime' | translate"/></label>
+                        <div class="col-sm-6">
+                       		<input type="date" class="form-control" id="field-6" name="physicalTime" ng-model="fields.physicalTime"/>
+                        </div>
+                    </div> 
+                    
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-5">
+                            <button type="submit" class="btn btn-success" ng-click="validateBeforSubmit()"><span ng-bind=" 'i18n.common.save' | translate"/></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

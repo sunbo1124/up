@@ -41,6 +41,7 @@ requirejs.config({
         'menuService':'scripts/services/sysmenu/menuService',
         'allotMenuService':'scripts/services/allotmenu/allotMenuService',
         'allotRoleService':'scripts/services/allotrole/allotRoleService',
+        'healthRecordService':'scripts/services/healthrecord/healthRecordService',
         'appContextPathService': 'scripts/services/info/appContextPathService'
     },
     shim:{
@@ -156,6 +157,7 @@ require(
         'userService',
         'appContextPathService',
         'roleService',
+        'healthRecordService',
         'menuService',
         'allotMenuService',
         'allotRoleService',
