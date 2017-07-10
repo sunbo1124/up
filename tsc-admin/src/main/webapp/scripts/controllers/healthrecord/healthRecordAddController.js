@@ -65,6 +65,81 @@ define(['app'], function(app) {
         	}
         }
         
+        $scope.selectionPayType = function($event, menuId) {
+        	var checkbox = $event.target;
+        	var action = (checkbox.checked ? 'add' : 'remove');
+        	$scope.fields.payType = $scope.fields.payType;
+        	if(action == "remove"){
+        		var arr=$scope.fields.payType.split(",");
+        		$scope.fields.payType = "";
+        		for(var i=0;i<arr.length;i++){
+        			if(arr[i]!=menuId){
+        				if($scope.fields.payType==""){
+        					$scope.fields.payType = arr[i];
+        				}else{
+        					$scope.fields.payType = $scope.fields.payType + "," + arr[i];
+        				}
+        			}
+        		}
+        	}else{
+        		if($scope.fields.payType){
+        			$scope.fields.payType = $scope.fields.payType + ","+ menuId;
+        		}else{
+        			$scope.fields.payType = menuId;
+        		}
+        	}
+        }
+        
+        $scope.selectionPayType = function($event, menuId) {
+        	var checkbox = $event.target;
+        	var action = (checkbox.checked ? 'add' : 'remove');
+        	$scope.fields.allergicHis = $scope.fields.allergicHis;
+        	if(action == "remove"){
+        		var arr=$scope.fields.allergicHis.split(",");
+        		$scope.fields.allergicHis = "";
+        		for(var i=0;i<arr.length;i++){
+        			if(arr[i]!=menuId){
+        				if($scope.fields.allergicHis==""){
+        					$scope.fields.allergicHis = arr[i];
+        				}else{
+        					$scope.fields.allergicHis = $scope.fields.allergicHis + "," + arr[i];
+        				}
+        			}
+        		}
+        	}else{
+        		if($scope.fields.allergicHis){
+        			$scope.fields.allergicHis = $scope.fields.allergicHis + ","+ menuId;
+        		}else{
+        			$scope.fields.allergicHis = menuId;
+        		}
+        	}
+        }
+        
+        $scope.selectionMedicalHis = function($event, menuId) {
+        	var checkbox = $event.target;
+        	var action = (checkbox.checked ? 'add' : 'remove');
+        	$scope.fields.medicalHis = $scope.fields.medicalHis;
+        	if(action == "remove"){
+        		var arr=$scope.fields.medicalHis.split(",");
+        		$scope.fields.medicalHis = "";
+        		for(var i=0;i<arr.length;i++){
+        			if(arr[i]!=menuId){
+        				if($scope.fields.medicalHis==""){
+        					$scope.fields.medicalHis = arr[i];
+        				}else{
+        					$scope.fields.medicalHis = $scope.fields.medicalHis + "," + arr[i];
+        				}
+        			}
+        		}
+        	}else{
+        		if($scope.fields.medicalHis){
+        			$scope.fields.medicalHis = $scope.fields.medicalHis + ","+ menuId;
+        		}else{
+        			$scope.fields.medicalHis = menuId;
+        		}
+        	}
+        }
+        
     	$scope.submit = function() {
     		console.log($scope.fields.permanentType.checked );
             $http.post(CONTEXT_PATH+"/healthRecord/add", $scope.fields)
