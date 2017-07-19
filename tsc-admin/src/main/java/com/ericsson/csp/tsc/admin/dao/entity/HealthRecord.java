@@ -87,9 +87,8 @@ public class HealthRecord implements java.io.Serializable, PaginationRow {
 	}
 
 	@Id
-	@SequenceGenerator(name = "geely_sequences", sequenceName = "geely_sequences", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geely_sequences")
 	@Column(name = "id", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}

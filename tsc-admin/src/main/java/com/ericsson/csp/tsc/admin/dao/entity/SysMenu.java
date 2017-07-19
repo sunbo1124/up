@@ -87,8 +87,7 @@ public class SysMenu implements java.io.Serializable, PaginationRow {
     }
 
     @Id
-    @SequenceGenerator(name = "geely_sequences", sequenceName = "geely_sequences", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geely_sequences")
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
     public int getId() {
         return this.id;

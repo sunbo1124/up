@@ -30,7 +30,7 @@ define(['angular','angular-route'], function(angular) {
                     .when('/role/add', route.resolve('sysRoleAddController','add','sysrole','vm', false))
                     .when('/role/upd/:roleId', route.resolve('sysRoleUpdateController','update','sysrole','vm', false))
                     
-                    .when('/healthRrecord', route.resolve('healthRecordListController','list','healthrecord','vm', false))
+                    .when('/healthRecord', route.resolve('healthRecordListController','list','healthrecord','vm', false))
                     .when('/healthRecord/add', route.resolve('healthRecordAddController','add','healthrecord','vm', false))
                     /*.when('/healthRrecord/upd/:healthRecordId', route.resolve('healthRecordUpdateController','update','healthrecord','vm', false))*/
                     

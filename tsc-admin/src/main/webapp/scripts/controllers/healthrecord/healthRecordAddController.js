@@ -141,7 +141,6 @@ define(['app'], function(app) {
         }
         
     	$scope.submit = function() {
-    		console.log($scope.fields.permanentType.checked );
             $http.post(CONTEXT_PATH+"/healthRecord/add", $scope.fields)
                 .success(function(data, status, headers, config) {
                     $location.path("/healthRecord");
@@ -150,10 +149,11 @@ define(['app'], function(app) {
                     console.log(response)
                 });
     	};
-
+    	
         $scope.validateBeforSubmit = function(fields) {
-            $scope.fields.isBuiltin = $scope.fields.isBuiltin.value;
+            $scope.fields.sex = $scope.fields.sex.value;
         };
+
     };
     healthRecordAddController.$inject = injectParams;
     app.register.controller('healthRecordAddController', healthRecordAddController);

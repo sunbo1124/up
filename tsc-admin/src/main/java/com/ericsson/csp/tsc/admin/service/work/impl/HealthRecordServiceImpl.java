@@ -1,5 +1,6 @@
 package com.ericsson.csp.tsc.admin.service.work.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -31,6 +32,8 @@ public class HealthRecordServiceImpl implements HealthRecordService {
 	 */
 	@Override
 	public void save(HealthRecord healthRecord) {
+		healthRecord.setCreateTime(new Date());
+		healthRecord.setUpdateTime(new Date());
 		int id = healthRecordDao.save(healthRecord);
 		LOGGER.debug("save healthRecord id:{}", id);
 	}
